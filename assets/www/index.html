@@ -1,0 +1,135 @@
+<html>
+<head>
+
+    <meta name="viewport" content="width=100%; initial-scale=1; user-scalable=no" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <base><!-- used to process relative links in content -->
+    <title>Turpial</title>
+        	
+    <link href="css/common.css" rel="stylesheet" type="text/css">
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+        
+    <script type="text/javascript" charset="utf-8" src="js/cordova-1.7.0.js"></script> 
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/iscroll.js"></script>
+    <script type="text/javascript" src="js/iscrollfactory.js"></script>
+    <script type="text/javascript" src="js/templates.js"></script>
+    <script type="text/javascript" src="js/servicelistener.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    
+    
+    <script type="text/javascript">
+        var myScroll;
+        $(document).ready(function() {	
+            
+            function onLoadPage(id) {
+                $(".tweetpage").hide();
+                $("#" + id).show();
+                pageAction(id);
+            }
+                        
+            function onMenuItemClicked(id) {
+                $("#navmenu li").each(function(n) {
+                    if($(this).attr('id') == id)
+                        $(this).removeClass("navmenu-element").addClass("navmenu-element-clicked");
+                    else
+                        $(this).removeClass("navmenu-element-clicked").addClass("navmenu-element");                        
+                });
+                
+                onLoadPage(id.split("-")[1] + "-page");
+            }
+            
+            $(".navmenu-element").click(function() {
+                onMenuItemClicked($(this).attr('id'));
+            });
+            
+            onMenuItemClicked("menu-timeline");
+            
+            function showTweets(id) {
+	            var tweetList = "";
+								
+	            if(id == "timeline-page")
+	                var imagePath = "pixmaps/unknown.png"
+	            else
+	                var imagePath = "pixmaps/mentionsdummy.png"
+
+	            var messageText = "Hi Turpial mobile!I am in the " + id + " page";
+	            
+	            var values = { avatar : imagePath, username: "4ndreaSt4gi", 
+                        message: messageText, reposted_by : "Retweeted by Turpial",
+                        timestamp : "oct 18, 02:07 am from web in reply to xyz"}
+	            
+	            templates.getTemplate("templates/mobile-status.partial", function(template) {
+	                for(var i = 0; i < 20; i++)
+	                    tweetList += templates.fillTemplate(template, values);
+	                $('#tweetList-' + id).html(tweetList);
+	                myScroll = iscrollFactory.getScroll('wrapper-' + id);
+	                serviceListener.activate();
+	             });
+            }
+            
+            function pageAction(id) {
+                if(id == "timeline-page" || id == "mentions-page")
+                    showTweets(id)
+            }
+            
+            
+            			
+        });
+				
+    </script>
+
+</head>
+<body onload="init();">
+
+        <!-- The header of our application -->
+        <header id="mainHeader" class="header">
+            <div class="topcombo">
+                <img src="pixmaps/turpialtwitter.png" />
+                <label>@4ndreaSt4gi</label>
+            </div>
+            <div style="width: 100%; height: 100%;">
+                <ul id="navmenu">
+                    <li id="menu-timeline" class="navmenu-element"><div>Home</div></li>
+                    <li id="menu-mentions" class="navmenu-element"><div>Mentions</div></li>
+                    <li id="menu-directs" class="navmenu-element"><div>Directs</div></li>
+                    <li id="menu-me" class="navmenu-element"><div style="border-right: 0px black solid;">Me</div></li>
+                </ul>
+            </div>
+        </header>
+        
+        
+        <!-- Our timeline-->
+        <div id="timeline-page" class="tweetpage">
+	        <div class="list">
+	            <div id="wrapper-timeline-page" style="height: 100%;">
+	                <div id="tweetList-timeline-page" class="scroller">
+	                    <!-- We will insert our tweets here -->
+	                </div>
+	            </div>
+	        </div>
+        </div>
+        
+        <!-- Our mentions-->
+        <div id="mentions-page" class="tweetpage">
+            <div class="list">
+                <div id="wrapper-mentions-page" style="height: 100%;">
+                    <div id="tweetList-mentions-page" class="scroller">
+                        <!-- We will insert our tweets here -->
+                    </div>
+                </div>
+           </div>        
+        </div>
+        
+        <!-- Our directs-->
+        <div id="directs-page" class="tweetpage">
+            <label>The directs will be shown here</label>
+        </div>
+        
+        <!-- Our info-->
+        <div id="me-page" class="tweetpage">
+	        <label>The info will be shown here</label>
+        </div>
+        
+</body>
+</html>
