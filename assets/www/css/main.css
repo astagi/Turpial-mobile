@@ -16,8 +16,8 @@
 .column {
     float: left;
     height: 100%;
-}	
-	
+}   
+    
 #navmenu {
     display: inline; 
     width: 100%;
@@ -57,11 +57,11 @@
 }
 
 .header {
-	position:absolute;
-	top:0px;
-	left:0px;
-	width:100%;
-	height: 70px;
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height: 70px;
     float: left;
     background-color: #000;
     color: #ebebeb;
@@ -69,7 +69,7 @@
 }
 
 .header .topcombo {
-	vertical-align:middle;
+    vertical-align:middle;
     float: left;
     width:100%;
     height: 30px;
@@ -142,13 +142,13 @@
 
 
 .tweetpage {
-	background-color: #fff;
+    background-color: #fff;
     color: #000;
-	position:absolute;
-	top:70px;	
-	width:100%;
-	bottom: 1px;
-	overflow-y: auto;
+    position:absolute;
+    top:70px;   
+    width:100%;
+    bottom: 1px;
+    overflow-y: auto;
 }
 
 /*** Tweet stuffs ***/
