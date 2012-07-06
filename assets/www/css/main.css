@@ -56,6 +56,17 @@
     font-weight: bold;   
 }
 
+.blackseparator {
+    position:absolute;
+    top:30px;
+    left:0px;
+    height: 1px;
+    width: 100%;
+    background-color: #000000;  
+    display: block;
+}
+    
+    
 .header {
     position:absolute;
     top:0px;
@@ -73,18 +84,22 @@
     float: left;
     width:100%;
     height: 30px;
-    background: -webkit-gradient(linear, left top, left bottom, from(#484848), to(#000000));
+    background: -webkit-gradient(linear, left top, left bottom, from(#34952b), to(#176b21));
 }
 
 .header .topcombo img {
     display: block;
     float: left;
+    margin-left: 3px;
 }
 
 .header .topcombo label {
     float: left;
     font-size: 16px;
     font-weight: bold;
+    line-height: 30px;
+    margin-left: 5px;
+    text-shadow: black 0.1em 0.1em 0.2em;    
 }
 
 
