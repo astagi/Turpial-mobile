@@ -1,13 +1,14 @@
 <html>
 <head>
 
-    <meta name="viewport" content="width=100%; initial-scale=1; user-scalable=no" />
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0;">    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <base><!-- used to process relative links in content -->
     <title>Turpial</title>
             
     <link href="css/common.css" rel="stylesheet" type="text/css">
     <link href="css/main.css" rel="stylesheet" type="text/css">
+    <link href="css/tweet.css" rel="stylesheet" type="text/css">
+    
         
     <script type="text/javascript" charset="utf-8" src="js/cordova-1.7.0.js"></script> 
     <script type="text/javascript" src="js/jquery.js"></script>
@@ -16,6 +17,8 @@
     <script type="text/javascript" src="js/templates.js"></script>
     <script type="text/javascript" src="js/servicelistener.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/dropdown.js"></script>
+    
     
     
     <script type="text/javascript">
@@ -27,7 +30,11 @@
                 $("#" + id).show();
                 pageAction(id);
             }
-                        
+            
+            $('#accountslist').DropDown({
+
+            });  
+                                    
             function onMenuItemClicked(id) {
                 $("#navmenu li").each(function(n) {
                     if($(this).attr('id') == id)
@@ -60,8 +67,9 @@
                         timestamp : "oct 18, 02:07 am from web in reply to xyz"}
                 
                 templates.getTemplate("templates/mobile-status.partial", function(template) {
-                    for(var i = 0; i < 20; i++)
+                    for(var i = 0; i < 100; i++)
                         tweetList += templates.fillTemplate(template, values);
+                    //tweetList += "<div> Vciao </div>";
                     $('#tweetList-' + id).html(tweetList);
                     myScroll = iscrollFactory.getScroll('wrapper-' + id);
                     serviceListener.activate();
@@ -80,24 +88,10 @@
     </script>
 
 </head>
-<body onload="init();">
+<body onload="init();" style="background-color: #262626;">
 
         <!-- The header of our application -->
-        <header id="mainHeader" class="header">
-            <div class="topcombo">
-                <img src="pixmaps/turpial.png" />
-                <label>@4ndreaSt4gi</label>
-            </div>
-            <div class="blackseparator"></div>
-            <div style="width: 100%; height: 100%;">
-                <ul id="navmenu">
-                    <li id="menu-timeline" class="navmenu-element"><div>Home</div></li>
-                    <li id="menu-mentions" class="navmenu-element"><div>Mentions</div></li>
-                    <li id="menu-directs" class="navmenu-element"><div>Directs</div></li>
-                    <li id="menu-me" class="navmenu-element"><div style="border-right: 0px black solid;">Me</div></li>
-                </ul>
-            </div>
-        </header>
+
         
         
         <!-- Our timeline-->
@@ -131,6 +125,24 @@
         <div id="me-page" class="tweetpage">
             <label>The info will be shown here</label>
         </div>
+        
+        <header id="mainHeader" class="header">
+            <div class="topcombo">
+                <img src="pixmaps/turpial.png" />
+                <label>	        	
+                	<div id="accountslist"></div>
+                </label>
+            </div>
+            <div class="blackseparator"></div>
+            <div style="width: 100%; height: 100%;">
+                <ul id="navmenu">
+                    <li id="menu-timeline" class="navmenu-element"><div>Home</div></li>
+                    <li id="menu-mentions" class="navmenu-element"><div>Mentions</div></li>
+                    <li id="menu-directs" class="navmenu-element"><div>Directs</div></li>
+                    <li id="menu-me" class="navmenu-element"><div style="border-right: 0px black solid;">Me</div></li>
+                </ul>
+            </div>
+        </header>
         
 </body>
 </html>

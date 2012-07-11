@@ -23,7 +23,7 @@ window.templates = function() {
     
     function fillTemplate(template, values){
         for (var key in values)
-            template = template.replace("<% @" + key + " %>", values[key]);
+            template = template.replace(new RegExp( "<% @" + key + " %>", "g" ), values[key]);
         return template;
     };
 
