@@ -26,7 +26,7 @@ window.serviceListener = function() {
         
         templates.getTemplate("templates/mobile-status.partial", function(template) {
             tweetList = templates.fillTemplate(template, values);
-            $('#tweetList-timeline-page').html(tweetList + $('#tweetList-timeline-page').html());
+            $('#timeline-page').html(tweetList + $('#timeline-page').html());
         });
     };
     

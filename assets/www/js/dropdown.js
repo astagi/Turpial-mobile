@@ -1,6 +1,5 @@
 /**
 * jQuery DropDown Plugin for Turpial
-* Version: 0.1.0
 * Description: fast developed, simple but cute drop down menu, optimized for Turpial.
 * Requires: JQuery
 * Author: Andrea Stagi

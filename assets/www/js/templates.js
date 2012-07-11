@@ -1,4 +1,10 @@
-
+/**
+* jQuery Template Plugin for Turpial
+* Description: a Javascript port of the Turpial template system.
+* Author: Andrea Stagi
+* Copyright: 2012 Andrea Stagi
+* License: GPL (included in the source)
+*/
 
 window.templates = function() {
     
@@ -24,6 +30,7 @@ window.templates = function() {
     function fillTemplate(template, values){
         for (var key in values)
             template = template.replace(new RegExp( "<% @" + key + " %>", "g" ), values[key]);
+        template = template.replace(new RegExp( "<% @([a-z])* %>", "g" ), "");
         return template;
     };
 
