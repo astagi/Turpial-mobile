@@ -8,9 +8,8 @@
     <link href="css/common.css" rel="stylesheet" type="text/css">
     <link href="css/main.css" rel="stylesheet" type="text/css">
     <link href="css/tweet.css" rel="stylesheet" type="text/css">
-    
         
-    <script type="text/javascript" charset="utf-8" src="js/cordova-1.7.0.js"></script> 
+    <script type="text/javascript" charset="utf-8" src="js/cordova-1.7.0.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/iscroll.js"></script>
     <script type="text/javascript" src="js/iscrollfactory.js"></script>
@@ -18,22 +17,22 @@
     <script type="text/javascript" src="js/servicelistener.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/dropdown.js"></script>
-    
-    
-    
+
+
     <script type="text/javascript">
         var myScroll;
         $(document).ready(function() {  
             
+            
             function onLoadPage(id) {
-                $(".tweetpage").hide();
+                $(".scrollablepage").hide();
                 $("#" + id).show();
                 pageAction(id);
             }
             
-            $('#accountslist').DropDown({
+             $('#accountslist').DropDown({
 
-            });  
+             });  
                                     
             function onMenuItemClicked(id) {
                 $("#navmenu li").each(function(n) {
@@ -70,8 +69,7 @@
                     for(var i = 0; i < 100; i++)
                         tweetList += templates.fillTemplate(template, values);
                     //tweetList += "<div> Vciao </div>";
-                    $('#tweetList-' + id).html(tweetList);
-                    myScroll = iscrollFactory.getScroll('wrapper-' + id);
+                    $('#' + id).html(tweetList);
                     serviceListener.activate();
                  });
             }
@@ -79,9 +77,7 @@
             function pageAction(id) {
                 if(id == "timeline-page" || id == "mentions-page")
                     showTweets(id)
-            }
-            
-            
+            }            
                         
         });
                 
@@ -95,42 +91,29 @@
         
         
         <!-- Our timeline-->
-        <div id="timeline-page" class="tweetpage">
-            <div class="list">
-                <div id="wrapper-timeline-page" style="height: 100%;">
-                    <div id="tweetList-timeline-page" class="scroller">
-                        <!-- We will insert our tweets here -->
-                    </div>
-                </div>
-            </div>
+        <div id="timeline-page" class="scrollablepage">
+           <!-- We will insert our tweets here -->
         </div>
         
-        <!-- Our mentions-->
-        <div id="mentions-page" class="tweetpage">
-            <div class="list">
-                <div id="wrapper-mentions-page" style="height: 100%;">
-                    <div id="tweetList-mentions-page" class="scroller">
-                        <!-- We will insert our tweets here -->
-                    </div>
-                </div>
-           </div>        
-        </div>
+       <div id="mentions-page" class="scrollablepage">
+           <!-- We will insert our tweets here -->
+       </div>
         
         <!-- Our directs-->
-        <div id="directs-page" class="tweetpage">
+        <div id="directs-page" class="scrollablepage">
             <label>The directs will be shown here</label>
         </div>
         
         <!-- Our info-->
-        <div id="me-page" class="tweetpage">
+        <div id="me-page" class="scrollablepage">
             <label>The info will be shown here</label>
         </div>
         
         <header id="mainHeader" class="header">
             <div class="topcombo">
                 <img src="pixmaps/turpial.png" />
-                <label>	        	
-                	<div id="accountslist"></div>
+                <label>             
+                    <div id="accountslist"></div>
                 </label>
             </div>
             <div class="blackseparator"></div>

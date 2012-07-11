@@ -23,7 +23,7 @@
     width: 100%;
 }
 
-.navmenu-element {
+.navmenu-element-clicked {
     width:25%; float:left;
     height: 30px;
     text-align:center;
@@ -31,16 +31,16 @@
     background: -webkit-gradient(linear, left top, left bottom, from(#686868), to(#505050));
 }
 
-.navmenu-element div{
+.navmenu-element-clicked div{
     border-right: 1px black solid;
     display: table-cell;
     height:40px;
     vertical-align:middle;
-    color: #303030;
+    color: #000000;
     font-weight: bold;
 }
 
-.navmenu-element-clicked {
+.navmenu-element {
     width:25%; float:left;
     height: 30px;
     text-align:center;
@@ -48,27 +48,18 @@
     background: -webkit-gradient(linear, left top, left bottom, from(#383838), to(#181818));
 }
 
-.navmenu-element-clicked div{
+.navmenu-element div{
     border-right: 1px black solid;
     display: table-cell;
     height:40px;
     vertical-align:middle;
+    color: #E0E0E0 ;
     font-weight: bold;   
-}
-
-.blackseparator {
-    position:absolute;
-    top:30px;
-    left:0px;
-    height: 1px;
-    width: 100%;
-    background-color: #000000;  
-    display: block;
 }
     
     
 .header {
-    position:absolute;
+    position:fixed;
     top:0px;
     left:0px;
     width:100%;
@@ -161,5 +152,13 @@
     top:70px;   
     width:100%;
     bottom: 1px;
+    overflow-y: auto;    
+}
+
+.scrollablepage {
+    position: absolute;
+    top: 70px;
+    width: 100%;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }

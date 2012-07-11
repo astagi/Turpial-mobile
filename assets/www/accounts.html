@@ -21,35 +21,35 @@
     
     <script type="text/javascript">
     
-	function deleteAccount(accountId) {
-		alert("DELETED" + accountId);
-	}
-	
-	function addAccount() {
-		
+    function deleteAccount(accountId) {
+        alert("DELETED" + accountId);
+    }
+    
+    function addAccount() {
+        
         var values = { account_id: "twitter-4ndreaSt4gi", 
-        		account_name : "4ndreaSt4gi"}
-		
+                account_name : "4ndreaSt4gi"}
+        
         templates.getTemplate("templates/account_line.partial", function(template) {
             newAccountLine = templates.fillTemplate(template, values);
             $("#accounts").append(newAccountLine);
             
          });
-	}
+    }
     
     
     $(document).ready(function() {
-    	    	
-    	var accounts = 1;
+                
+        var accounts = 1;
         $("#accounts").css("margin-left", (-1)*($("#accounts").width()/2) + "px");   
-    	$(".addbtn").click(function() {
+        $(".addbtn").click(function() {
             var current_height = $("#accounts").height();
             current_height = current_height + current_height / accounts;
             $("#accounts").height(current_height + "px");
             addAccount();
             accounts++;
-    	});
-    	
+        });
+        
         $('#accounttype').DropDown({
 
         });  
@@ -73,10 +73,10 @@
         <div class="footer"></div>
         
         <div class="addaccount">
-	        <div id="accounttype" style="float:left; width: 200px;"></div>
-	        <div style="float:left;">
-	        <input type="button" class="addbtn" value="+"></input>
-	        </div>
+            <div id="accounttype" style="float:left; width: 200px;"></div>
+            <div style="float:left;">
+            <input type="button" class="addbtn" value="+"></input>
+            </div>
         </div>
         
         <!-- Our mentions-->

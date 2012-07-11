@@ -36,9 +36,9 @@
                 $("#" + parameters.containerId).append(divMain);
                 
                 divWrapper = "<div id='" + parameters.containerId + "wrapper" + "' style='" +
-	                "background-color:yellow" + ";" +
-	                "height: 120px;" +
-	                "width:" + 200 + "px;'></div>";
+                    "background-color:yellow" + ";" +
+                    "height: 120px;" +
+                    "width:" + 200 + "px;'></div>";
 
 
                 $("#" + parameters.containerId).append(divWrapper);
@@ -51,32 +51,35 @@
 
                 $("#" + parameters.containerId + "wrapper").append(divOptions);
                 
+                $("#" + parameters.containerId + "wrapper").hide();
+                
                 $("#" + parameters.containerId + " .mainel").click(function() {
-                	if($("#" + parameters.containerId + "wrapper").is(":visible")) {
-                		$(document).unbind('click');
-                		$("#" + parameters.containerId + "wrapper").hide();
+                    if($("#" + parameters.containerId + "wrapper").is(":visible")) {
+                        $(document).unbind('click');
+                        $("#" + parameters.containerId + "wrapper").hide();
 
-                	} else {
-                		$(document).bind('click', function(e) {  
-                			var $clicked = $(e.target);
-            			    if (!$clicked.parents().hasClass("dropdown")) {
-            			    	$(document).unbind('click');
-            			        $("#" + parameters.containerId + "wrapper").hide();
-            			    }
-                		});
-                		
-                		$("#" + parameters.containerId + "wrapper").show();
-                	}
+                    } else {
+                        $(document).bind('click', function(e) {  
+                            var $clicked = $(e.target);
+                            if (!$clicked.parents().hasClass("dropdown")) {
+                                $(document).unbind('click');
+                                $("#" + parameters.containerId + "wrapper").hide();
+                            }
+                        });
+                        
+                        $("#" + parameters.containerId + "wrapper").show();
+                        iscrollFactory.getScroll(parameters.containerId + "wrapper").refresh();
+                    }
                 });
                     
-	              addRow("white");
-	              addRow("white");
-	              addRow("white");
-	              addRow("white");
-	              addRow("white");
-	              addRow("white");
-	              
-	              iscrollFactory.getScroll(parameters.containerId + "wrapper");
+                  addRow("white");
+                  addRow("black");
+                  addRow("white");
+                  addRow("black");
+                  addRow("white");
+                  addRow("black");
+                  
+                  iscrollFactory.getScroll(parameters.containerId + "wrapper").refresh();
 
             }
 
