@@ -6,7 +6,7 @@ window.iscrollFactory = function() {
     
     function getScroll(elementid) {
         if(!iscrollers[elementid])
-            iscrollers[elementid] =  new iScroll(elementid, { hideScrollbar: true, fadeScrollbar: false });
+            iscrollers[elementid] =  new iScroll(elementid, { bounce : false, vScrollbar : false });
         return iscrollers[elementid];
     }
     

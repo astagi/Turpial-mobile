@@ -1,0 +1,23 @@
+.dropdown .wrapper .scroller .rowcontainer {
+    text-shadow: 0.1em 0.1em 0.05em #333;
+    font-size:20px;
+    background: -webkit-gradient(linear, left top, left bottom, from(#383838), to(#181818));
+}
+
+.dropdown .mainel {
+    text-shadow: 0.1em 0.1em 0.05em #333;
+    font-size:20px;
+}
+
+.dropdown .wrapper {
+    border: black 1px solid;
+    background-color: #000000;
+}
+
+.dropdown .mainrow .contenttext {
+    margin-left: 4px;
+}
+
+.dropdown .wrapper .scroller .rowcontainer .optionbtn .contenttext {
+    margin-left: 4px;
+}

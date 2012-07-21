@@ -5,6 +5,7 @@
     <base><!-- used to process relative links in content -->
     <title>Turpial</title>
             
+    <link href="css/dropdown.css" rel="stylesheet" type="text/css">
     <link href="css/common.css" rel="stylesheet" type="text/css">
     <link href="css/main.css" rel="stylesheet" type="text/css">
     <link href="css/tweet.css" rel="stylesheet" type="text/css">
@@ -31,6 +32,10 @@
             }
             
              $('#accountslist').DropDown({
+
+             });  
+             
+             $('#menubtn').DropDown({
 
              });  
                                     
@@ -110,14 +115,11 @@
         </div>
         
         <header id="mainHeader" class="header">
-            <div class="topcombo">
-                <img src="pixmaps/turpial.png" />
-                <label>             
-                    <div id="accountslist"></div>
-                </label>
+            <div class="topcombo" style="">       
+                <div id="menubtn" style="width: 200px; position:absolute; right:0;"></div>  
+                <div id="accountslist" style="width: 200px; position:absolute;"></div>
             </div>
-            <div class="blackseparator"></div>
-            <div style="width: 100%; height: 100%;">
+            <div style="top: 2px; width: 100%; height: 100%;">
                 <ul id="navmenu">
                     <li id="menu-timeline" class="navmenu-element"><div>Home</div></li>
                     <li id="menu-mentions" class="navmenu-element"><div>Mentions</div></li>
