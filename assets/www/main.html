@@ -31,13 +31,23 @@
                 pageAction(id);
             }
             
-             $('#accountslist').DropDown({
+            var dropAccount = $('#accountslist').DropDown({
 
-             });  
+            });
              
-             $('#menubtn').DropDown({
+            dropAccount.addRow("pixmaps/turpialtwitter.png", "@4ndreaSt4gi")
+            .addRow("pixmaps/turpialtwitter.png", "@4ndreaSt4gi")
+            .addRow("pixmaps/turpialidentica.png", "@Turpial")
+            .addRow("pixmaps/turpialtwitter.png", "@AndreaProva")
+             
+            var dropSettings = $('#menubtn').DropDown({
 
-             });  
+            });  
+            
+            dropSettings.addRow(undefined, "@4ndreaSt4gi")
+            .addRow(undefined, "@4ndreaSt4gi")
+            .addRow(undefined, "@Turpial")
+            .addRow(undefined, "@AndreaProva")
                                     
             function onMenuItemClicked(id) {
                 $("#navmenu li").each(function(n) {

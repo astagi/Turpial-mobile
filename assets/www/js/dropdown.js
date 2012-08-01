@@ -33,7 +33,7 @@ $(document).ready(function() {
             var parameters = $.extend(defaults, options);
             var height = 0;
             var width = 0;
-
+            var that = this;
 
             function createMe(parameters) {
 
@@ -58,7 +58,7 @@ $(document).ready(function() {
                     "width:" + width + "px;'></div>";
                 
                 $("#" + parameters.containerId).addClass("dropdown");
-
+                this.
                 $("#" + parameters.containerId).append(divMain);
                 
                 divWrapper = "<div class='wrapper' id='" + parameters.containerId + "wrapper" + "' style='" +
@@ -92,13 +92,6 @@ $(document).ready(function() {
                         iscrollFactory.getScroll(parameters.containerId + "wrapper").refresh();
                     }
                 });
-                    
-                addRow("pixmaps/turpial.png", "white");
-                addRow("pixmaps/turpial.png", "black");
-                addRow("pixmaps/turpial.png", "white");
-                addRow("pixmaps/turpial.png", "black");
-                addRow("pixmaps/turpial.png", "white");
-                addRow("pixmaps/turpial.png", "black");
                   
                 iscrollFactory.getScroll(parameters.containerId + "wrapper").refresh();
 
@@ -107,13 +100,17 @@ $(document).ready(function() {
             function createRow(height, width, icon, text, classname, offset) {
                 
                 var divRow = "";
+                var imgoffset = 0;
+                
+                if(icon != undefined)
+                    imgoffset = height;
                 
                 if(offset == undefined)
                     offset = 0;
                 
                 if(text != undefined) {
                     divRow += "<div class='" + classname + "' style='float: right;" +
-                        "width:" + (width - height - offset / 2) + "px;" +
+                        "width:" + (width - imgoffset - offset / 2) + "px;" +
                         "height:" + height + "px;" +
                         "'><div class='contenttext' style='line-height:" + height + "px;'>" + text + "</div></div>";
                 }
@@ -133,13 +130,14 @@ $(document).ready(function() {
                 return divRow;
             }
 
-            function addRow(image, content) {
+            this.addRow = function(image, content) {
                 var div = createRow(height, width, image, content, "optionbtn", 4);
                 $("#" + parameters.containerId + "wrapper" + " .scroller").append(div);
+                return that;
             }
 
             createMe(parameters);
-
+            return that;
         }
     });
 
