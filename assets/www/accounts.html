@@ -8,6 +8,8 @@
             
     <link href="css/common.css" rel="stylesheet" type="text/css">
     <link href="css/accounts.css" rel="stylesheet" type="text/css">
+    <link href="css/dropdown.css" rel="stylesheet" type="text/css">
+    
         
     <script type="text/javascript" charset="utf-8" src="js/cordova-1.7.0.js"></script> 
     <script type="text/javascript" src="js/jquery.js"></script>
@@ -17,6 +19,8 @@
     <script type="text/javascript" src="js/servicelistener.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/dropdown.js"></script>
+    <script type="text/javascript" src="js/imagebutton.js"></script>
+    
     
     
     <script type="text/javascript">
@@ -50,9 +54,18 @@
             accounts++;
         });
         
-        $('#accounttype').DropDown({
-
-        });  
+        var dropAccountType = $('#accounttype').DropDown({
+            image: "pixmaps/turpialtwitter.png",
+            value: "Twitter",
+        });
+        
+        var addaccountBtn = $('#addaccountbtn').ImageButton({
+            image: "pixmaps/actionbar/light/add.png",
+            callback: undefined,
+        });
+        
+        dropAccountType.addRow("pixmaps/turpialtwitter.png", "Twitter")
+        .addRow("pixmaps/turpialidentica.png", "Identica");
 
     });
     
@@ -67,21 +80,18 @@
                 <img src="pixmaps/turpial.png" />
                 <label>Accounts</label>
             </div>
-            <div class="blackseparator"></div>
         </header>
         
         <div class="footer"></div>
         
-        <div class="addaccount">
-            <div id="accounttype" style="float:left; width: 200px;"></div>
-            <div style="float:left;">
-            <input type="button" class="addbtn" value="+"></input>
-            </div>
-        </div>
-        
         <!-- Our mentions-->
         <div id="accounts" class="">
 
+        </div>
+        
+        <div class="addaccount">
+            <div id="accounttype" style="float:left; width: 200px; height:45px;"></div>
+            <div id="addaccountbtn" style="float:left;" class="addbtn"></div>
         </div>
                 
 </body>

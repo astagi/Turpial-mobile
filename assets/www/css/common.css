@@ -168,7 +168,7 @@ select {
     top:0px;
     left:0px;
     width:100%;
-    height: 97px;
+    height: 45px;
     float: left;
     background-color: #000;
     color: #ebebeb;
@@ -238,6 +238,13 @@ select {
     display: block;
 }
 
+.menudiv {
+    position: fixed; 
+    top: 45px; 
+    width: 100%; 
+    height: 100%;
+}
+
 
 #navmenu {
     display: inline; 
@@ -249,7 +256,7 @@ select {
     height: 50px;
     text-align:center;
     display: table;
-    background: -webkit-gradient(linear, left top, left bottom, from(#686868), to(#505050));
+    background: -webkit-gradient(linear, left top, left bottom, from(#383838), to(#181818));
 }
 
 .navmenu-element-clicked div{
@@ -257,8 +264,9 @@ select {
     display: table-cell;
     height:50px;
     vertical-align:middle;
-    color: #000000;
+    color: #FFFFFF;
     font-weight: bold;
+    -webkit-box-shadow: inset 0 0 10px #000000;
 }
 
 .navmenu-element {
@@ -266,7 +274,7 @@ select {
     height: 50px;
     text-align:center;
     display: table;
-    background: -webkit-gradient(linear, left top, left bottom, from(#383838), to(#181818));
+    background: -webkit-gradient(linear, left top, left bottom, from(#404040), to(#202020));
 }
 
 .navmenu-element div{

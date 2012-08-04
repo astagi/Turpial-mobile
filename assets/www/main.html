@@ -1,7 +1,8 @@
 <html>
 <head>
 
-    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0;">    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0;">    
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <base><!-- used to process relative links in content -->
     <title>Turpial</title>
             
@@ -18,8 +19,9 @@
     <script type="text/javascript" src="js/servicelistener.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/dropdown.js"></script>
-
-
+    <script type="text/javascript" src="js/imagebutton.js"></script>
+    
+    
     <script type="text/javascript">
         var myScroll;
         $(document).ready(function() {  
@@ -31,23 +33,28 @@
                 pageAction(id);
             }
             
+            var refreshBtn = $('#refreshbtn').ImageButton({
+                image: "pixmaps/actionbar/light/refresh.png",
+                callback: undefined,
+            });
+            
             var dropAccount = $('#accountslist').DropDown({
-
+                image: "pixmaps/turpial.png",
+                value: "@Andrea",
             });
              
             dropAccount.addRow("pixmaps/turpialtwitter.png", "@4ndreaSt4gi")
             .addRow("pixmaps/turpialtwitter.png", "@4ndreaSt4gi")
             .addRow("pixmaps/turpialidentica.png", "@Turpial")
-            .addRow("pixmaps/turpialtwitter.png", "@AndreaProva")
+            .addRow("pixmaps/turpialtwitter.png", "@AndreaProva");
              
             var dropSettings = $('#menubtn').DropDown({
-
+                image: "pixmaps/actionbar/light/settings.png",
             });  
             
-            dropSettings.addRow(undefined, "@4ndreaSt4gi")
-            .addRow(undefined, "@4ndreaSt4gi")
-            .addRow(undefined, "@Turpial")
-            .addRow(undefined, "@AndreaProva")
+            dropSettings.addRow(undefined, "New")
+            .addRow(undefined, "Settings")
+            .addRow(undefined, "About");
                                     
             function onMenuItemClicked(id) {
                 $("#navmenu li").each(function(n) {
@@ -124,18 +131,20 @@
             <label>The info will be shown here</label>
         </div>
         
+        <div class="menudiv">
+            <ul id="navmenu">
+                <li id="menu-timeline" class="navmenu-element"><div>Home</div></li>
+                <li id="menu-mentions" class="navmenu-element"><div>Mentions</div></li>
+                <li id="menu-directs" class="navmenu-element"><div>Directs</div></li>
+                <li id="menu-me" class="navmenu-element"><div style="border-right: 0px black solid;">Me</div></li>
+            </ul>
+        </div>
+        
         <header id="mainHeader" class="header">
             <div class="topcombo" style="">       
+                <div id="refreshbtn" style="width: 45px; position:absolute; right:45px;"></div>  
                 <div id="menubtn" style="width: 200px; position:absolute; right:0;"></div>  
                 <div id="accountslist" style="width: 200px; position:absolute;"></div>
-            </div>
-            <div style="top: 2px; width: 100%; height: 100%;">
-                <ul id="navmenu">
-                    <li id="menu-timeline" class="navmenu-element"><div>Home</div></li>
-                    <li id="menu-mentions" class="navmenu-element"><div>Mentions</div></li>
-                    <li id="menu-directs" class="navmenu-element"><div>Directs</div></li>
-                    <li id="menu-me" class="navmenu-element"><div style="border-right: 0px black solid;">Me</div></li>
-                </ul>
             </div>
         </header>
         

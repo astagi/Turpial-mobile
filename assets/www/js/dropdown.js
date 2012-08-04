@@ -31,7 +31,6 @@ $(document).ready(function() {
             }
             
             var parameters = $.extend(defaults, options);
-            var height = 0;
             var width = 0;
             var that = this;
 
@@ -45,32 +44,26 @@ $(document).ready(function() {
                 
                 if(height == 0)
                     height = $("#" + parameters.containerId).parent().height();
-                else
-                    height = 30;
                 
                 if(width == 0)
                     width = $("#" + parameters.containerId).parent().width();
-                else
-                    width = 200;
-
+                
                 divMain = "<div class= 'mainel' style='" +
                     "height:" + height + "px;" +
                     "width:" + width + "px;'></div>";
                 
                 $("#" + parameters.containerId).addClass("dropdown");
-                this.
                 $("#" + parameters.containerId).append(divMain);
                 
                 divWrapper = "<div class='wrapper' id='" + parameters.containerId + "wrapper" + "' style='" +
                     "height: 120px;" +
                     "width:" + width + "px;'></div>";
                 
-                var mainRow = createRow(height, width, "pixmaps/turpial.png", "@Andrea", "mainrow");
+                var mainRow = createRow(height, width, parameters.image, parameters.value, "mainrow");
 
                 $("#" + parameters.containerId + " .mainel").html(mainRow);
                 $("#" + parameters.containerId).append(divWrapper);
-                
-
+                                
                 divOptions = "<div class='scroller' style='" +
                     "width:" + width + "px;'" + "></div>";
 
@@ -108,11 +101,15 @@ $(document).ready(function() {
                 if(offset == undefined)
                     offset = 0;
                 
+                
                 if(text != undefined) {
+                    divRow += "<div style='display: block;float: right; height:" + height + "px; width: 10px;'>";
+                    divRow += "<div class='triangle' style='margin-top:" + (height - 13)+ "px'></div>";
+                    divRow += "</div>";
                     divRow += "<div class='" + classname + "' style='float: right;" +
-                        "width:" + (width - imgoffset - offset / 2) + "px;" +
+                        "width:" + (width - 10 - imgoffset - offset / 2) + "px;" +
                         "height:" + height + "px;" +
-                        "'><div class='contenttext' style='line-height:" + height + "px;'>" + text + "</div></div>";
+                        "'><div class='contenttext' style='line-height:" + height + "px;'>" + text + "</div></div>"
                 }
                 
                 if(icon != undefined) {
