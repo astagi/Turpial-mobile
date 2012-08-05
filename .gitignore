@@ -8,3 +8,8 @@ gen/
 bin/
 *~
 project.properties
+
+#Ant ignore
+build.xml
+local.properties
+proguard-project.txt
